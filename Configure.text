@@ -1,0 +1,37 @@
+# Network Configuration
+
+This Cisco Packet Tracer project implements **VLANs, EtherChannel, trunking, and Inter-VLAN routing**.
+
+### VLAN Configuration
+
+Four VLANs are configured:
+
+* **VLAN 10** → Network: `192.168.10.0/24` → Gateway: `192.168.10.1`
+* **VLAN 20** → Network: `192.168.20.0/24` → Gateway: `192.168.20.1`
+* **VLAN 30** → Network: `192.168.30.0/24` → Gateway: `192.168.30.1`
+* **VLAN 40** → Network: `192.168.40.0/24` → Gateway: `192.168.40.1`
+
+### EtherChannel Configuration
+
+Multiple GigabitEthernet links are combined into logical **Port-Channels** using **LACP (`mode active`)**.
+
+* **Port-Channel 1:** Gi1/0/1 – Gi1/0/4
+* **Port-Channel 2:** Gi1/0/5 – Gi1/0/6
+* **Port-Channel 3:** Gi1/0/7 – Gi1/0/8
+
+All EtherChannel links are configured as **trunk ports** to carry multiple VLANs.
+
+### Inter-VLAN Routing
+
+Router-on-a-stick is configured using subinterfaces:
+
+`Gi0/0.10` → `192.168.10.1/24`
+`Gi0/0.20` → `192.168.20.1/24`
+`Gi0/0.30` → `192.168.30.1/24`
+`Gi0/0.40` → `192.168.40.1/24`
+
+Each subinterface uses **802.1Q encapsulation** for its respective VLAN.
+
+### Objective
+
+The configuration provides **VLAN segmentation, inter-VLAN communication, link aggregation, redundancy, and efficient network connectivity** using Cisco networking technologies.
